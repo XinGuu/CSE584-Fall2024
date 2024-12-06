@@ -13,7 +13,7 @@
 
 #### **1. Experiments Setting**
 
-We test two LLMs—ChatGPT and Claude—on this dataset. Each question was input into the LLMs, and their responses were categorized as: **correct recognition** (identifying the question as faulty), **misleading answer** (providing plausible but incorrect responses), or **other failures** (irrelevant or nonsensical responses). Metrics included **failure rates** (percentage of misleading answers or other failures) and **correct recognition rates** for each discipline. 
+We test two LLMs—ChatGPT and Claude—on this dataset. Each question was fed into the LLMs, and their responses were categorized as: **correct recognition** (identifying the question as faulty), **misleading answer** (providing plausible but incorrect responses), or **other failures** (irrelevant or nonsensical responses). Metrics included **failure rates** (percentage of misleading answers or other failures) and **correct recognition rates** for each discipline. 
 
 #### **2. Experimental Results**
 
@@ -34,11 +34,7 @@ The following tables summarize the performance of ChatGPT and Claude in terms of
 
 #### **3. Analysis of Results**
 
-The results demonstrate that both ChatGPT and Claude exhibit nearly uniform failure rates across Physics, Chemistry, and Biometry, with an average failure rate of approximately 73% for both models. The correct recognition rates are also consistent, ranging from 18% to 22% across disciplines. These findings suggest that 1) the limitations of the models are not discipline-specific but are instead general weaknesses in reasoning and handling faulty or ambiguous inputs, 2) gaps in the models’ meta-reasoning capabilities and the lack of exposure to similar faulty questions in their training data. 
-
-#### **4. Conclusion**
-
-The consistent performance of ChatGPT and Claude across all disciplines suggests that their challenges stem from general reasoning limitations rather than domain-specific knowledge gaps. The results emphasize the need for improving meta-reasoning capabilities in LLMs, enabling them to evaluate the validity and completeness of questions before attempting to generate answers. Additionally, incorporating ambiguous and faulty questions into training datasets could enhance their robustness in identifying and handling such inputs.
+The results demonstrate that both ChatGPT and Claude are nearly uniform failure rates across Physics, Chemistry, and Biometry, with an average failure rate of approximately 73% for both models. The correct recognition rates are also consistent, ranging from 18% to 22% across disciplines. These findings suggest that the limitations of the models are not discipline-specific, but are instead a general weakness in reasoning and handling faulty or ambiguous inputs. 
 
 ## RQ2: Does the complexity of faulty science questions (e.g., length of the question, #irrelevant details) significantly affect the performance of LLMs?
 
@@ -66,7 +62,7 @@ The following tables summarize the performance of ChatGPT and Claude on low-comp
 
 #### **3. Analysis of Results**
 
-The experimental results reveal a significant impact of question complexity on the performance of both ChatGPT and Claude. Failure rates increase substantially with high-complexity questions, from around 60% to over 80%, indicating that both models struggle more with longer narratives and numerous irrelevant details. Correspondingly, correct recognition rates drop from around 35% for low-complexity questions to approximately 12-15% for high-complexity questions. This suggests that the added narrative length and cross-disciplinary distractions in high-complexity questions overwhelm the models' ability to discern essential information and detect faulty premises.
+The experimental results demonstrate a significant impact of question complexity on the performance of both ChatGPT and Claude. Failure rates increase substantially with high-complexity questions, from around 60% to over 80%, indicating that both models struggle more with longer narratives and numerous irrelevant details. Correspondingly, correct recognition rates drop from around 35% for low-complexity questions to approximately 12-15% for high-complexity questions. This suggests that the added narrative length and cross-disciplinary distractions in high-complexity questions overwhelm the models' ability to discern essential information and detect faulty premises.
 
 ---
 # Conclusion
