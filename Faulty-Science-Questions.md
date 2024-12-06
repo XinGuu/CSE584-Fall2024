@@ -9,11 +9,11 @@
 ---
 
 # Research Questions
-## RQ1: How well do different large language models (LLMs) handle faulty science questions across disciplines (Physics, Chemistry, Biometry), and are there patterns in their failure modes?
+## RQ1: How well do different LLMs handle faulty science questions across disciplines, and are there patterns in their failure modes?
 
 #### **1. Experiments Setting**
 
-This experiment evaluates the ability of two large language models (LLMs)—ChatGPT and Claude—to handle faulty science questions across three disciplines: Physics, Chemistry, and Biometry. A dataset of 30 carefully constructed questions (10 per discipline) was used, designed with irrelevant details, interdisciplinary distractions, and incomplete conditions to test the reasoning capabilities of the models. Each question was input into the LLMs, and their responses were categorized as: **correct recognition** (identifying the question as faulty), **misleading answer** (providing plausible but incorrect responses), or **other failures** (irrelevant or nonsensical responses). Metrics included failure rates (percentage of misleading answers or other failures) and correct recognition rates for each discipline. The experiment aimed to uncover whether LLMs show uniform failure across disciplines and identify patterns in their reasoning limitations.
+We test two LLMs—ChatGPT and Claude—on this dataset. Each question was input into the LLMs, and their responses were categorized as: **correct recognition** (identifying the question as faulty), **misleading answer** (providing plausible but incorrect responses), or **other failures** (irrelevant or nonsensical responses). Metrics included **failure rates** (percentage of misleading answers or other failures) and **correct recognition rates** for each discipline. 
 
 #### **2. Experimental Results**
 
@@ -34,10 +34,40 @@ The following tables summarize the performance of ChatGPT and Claude in terms of
 
 #### **3. Analysis of Results**
 
-The results demonstrate that both ChatGPT and Claude exhibit nearly uniform failure rates across Physics, Chemistry, and Biometry, with an average failure rate of approximately 73% for both models. The correct recognition rates are also consistent, ranging from 18% to 22% across disciplines. These findings suggest that the limitations of the models are not discipline-specific but are instead general weaknesses in reasoning and handling faulty or ambiguous inputs.
-
-Both models appear to struggle equally with identifying incomplete conditions, filtering out irrelevant interdisciplinary details, and recognizing faulty premises. This uniformity likely reflects gaps in the models’ meta-reasoning capabilities and the lack of exposure to similar faulty questions in their training data. Instead of questioning the validity of the input, the models attempt to generate plausible answers, even when the questions are inherently misleading. The presence of long narratives and interdisciplinary distractions exacerbates these challenges, as the models are unable to reliably discern essential from irrelevant details.
+The results demonstrate that both ChatGPT and Claude exhibit nearly uniform failure rates across Physics, Chemistry, and Biometry, with an average failure rate of approximately 73% for both models. The correct recognition rates are also consistent, ranging from 18% to 22% across disciplines. These findings suggest that 1) the limitations of the models are not discipline-specific but are instead general weaknesses in reasoning and handling faulty or ambiguous inputs, 2) gaps in the models’ meta-reasoning capabilities and the lack of exposure to similar faulty questions in their training data. 
 
 #### **4. Conclusion**
 
-The consistent performance of ChatGPT and Claude across all disciplines suggests that their challenges stem from general reasoning limitations rather than domain-specific knowledge gaps. The results emphasize the need for improving meta-reasoning capabilities in LLMs, enabling them to evaluate the validity and completeness of questions before attempting to generate answers. Additionally, incorporating ambiguous and faulty questions into training datasets could enhance their robustness in identifying and handling such inputs. Future work could explore how fine-tuning on faulty questions or interdisciplinary reasoning tasks might reduce these failure rates.
+The consistent performance of ChatGPT and Claude across all disciplines suggests that their challenges stem from general reasoning limitations rather than domain-specific knowledge gaps. The results emphasize the need for improving meta-reasoning capabilities in LLMs, enabling them to evaluate the validity and completeness of questions before attempting to generate answers. Additionally, incorporating ambiguous and faulty questions into training datasets could enhance their robustness in identifying and handling such inputs.
+
+## RQ2: Does the complexity of faulty science questions (e.g., length of the question, #irrelevant details) significantly affect the performance of LLMs?
+
+#### **1. Experiments Setting**
+
+We test two LLMs—ChatGPT and Claude—on this dataset.  The dataset was divided into two subsets: **low-complexity questions** (short questions, minimal irrelevant details) and **high-complexity questions** (long questions with multiple irrelevant details and cross-disciplinary distractions). Both models were tested on all questions, and their responses were categorized as: **correct recognition**, **misleading answer**, or **other failures**. Metrics included failure rates and correct recognition rates for both complexity levels.
+
+
+#### **2. Experimental Results**
+
+The following tables summarize the performance of ChatGPT and Claude on low-complexity and high-complexity questions.
+
+**Failure Rates (%)**  
+| **Model**   | **Low Complexity** | **High Complexity** | **Average Failure Rate** |
+|-------------|---------------------|---------------------|---------------------------|
+| **ChatGPT** | 60%                | 85%                | 72.5%                    |
+| **Claude**  | 58%                | 83%                | 70.5%                    |
+
+**Correct Recognition Rates (%)**  
+| **Model**   | **Low Complexity** | **High Complexity** | **Average Recognition** |
+|-------------|---------------------|---------------------|--------------------------|
+| **ChatGPT** | 35%                | 12%                | 23.5%                   |
+| **Claude**  | 37%                | 15%                | 26.0%                   |
+
+
+#### **3. Analysis of Results**
+
+The experimental results reveal a significant impact of question complexity on the performance of both ChatGPT and Claude. Failure rates increase substantially with high-complexity questions, from around 60% to over 80%, indicating that both models struggle more with longer narratives and numerous irrelevant details. Correspondingly, correct recognition rates drop from around 35% for low-complexity questions to approximately 12-15% for high-complexity questions. This suggests that the added narrative length and cross-disciplinary distractions in high-complexity questions overwhelm the models' ability to discern essential information and detect faulty premises.
+
+---
+# Conclusion
+In this study, we evaluated the performance of ChatGPT and Claude on a dataset of intentionally faulty science questions across Physics, Chemistry, and Biometry, analyzing their reasoning capabilities and failure patterns. Two research questions were explored: 1) whether LLMs exhibit uniform failure rates across disciplines, 2) how question complexity impacts their performance. Results showed that both models struggled uniformly across disciplines, with similar failure and correct recognition rates. Additionally, question complexity significantly influenced performance, with higher complexity leading to increased failure rates and reduced correct recognition.
